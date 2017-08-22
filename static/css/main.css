@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+
 html {
   box-sizing: border-box;
 }
@@ -55,17 +56,29 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/*typography*/
+body {
+	font-family: "helvetica", sans-serif;
+	font-size: 12px;
+	-webkit-font-smoothing: antialiased;
+}
 span {
     display: block;
     padding-left: 10%;
 }
 
-/*typography*/
+a {
+	color: #000;
+	text-decoration: none;
+}
 
-body {
-	font-family: "helvetica", sans-serif;
-	font-size: 12px;
-	-webkit-font-smoothing: antialiased;
+a:hover {
+	color: #000;
+}
+
+a:active {
+	color: #000;
 }
 
 /*structure*/
@@ -90,7 +103,7 @@ body {
 
 /*project-items*/
 .project-item {
-	height: calc((100vh - 1px * 2) / 3);
+	height: calc((100vh) / 3);
 	border-bottom: 1px solid #000;
 	border-right: 1px solid #000;
 	position: relative;
@@ -165,7 +178,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	  	border-right: none;
 	}
 	.project-item {
-		width: calc((100% - 1px * 2) / 3);
+		width: calc((100%) / 3);
 	}
 	.project-item:nth-last-child(-n+3) {
 	  border-bottom: none;
@@ -176,7 +189,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	  	border-right: none;
 	}
 	.project-item {
-		width: calc((100% - 1px * 1) / 2);
+		width: calc((100%) / 2);
 	}
 	.project-item:nth-last-child(-n+2) {
 	  border-bottom: none;
