@@ -10,6 +10,45 @@
         <link rel="apple-touch-icon" href="#">
         <!-- Place favicon.ico in the root directory -->
 
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				var iW = $('.video').width(),
+					iH = $('.video').height(),
+					wW = $(window).width() - iW,
+					wH = $(window).height() - iH,
+					randomW, randomH, thus;
+
+				// console.log('wH: ' + randomH + ' wW: ' + wW + ' ' + iW + ' ' + iH);
+
+				function randomMe(){
+					randomW = Math.floor((Math.random() * wW) + 0);
+					randomH = Math.floor((Math.random() * wH) + 0);
+					$('.video').css({top: randomH, left: randomW});
+				}
+
+				$( window ).resize(function() {
+					wW = $(window).width() - iW;
+					wH = $(window).height() - iH;
+				});
+
+				$(".author").hover(function(){
+						randomMe();
+						thus = $(this).parent().children('.video');
+						thusVideo = thus.children();
+		                $(thus).show();
+		                thusVideo[0].play();
+		            }, function () {
+		            	$(thus).hide();
+		            	thusVideo[0].pause();
+						thusVideo[0].load();
+		            }
+		        );
+			});
+  		</script>
+
         <!-- <link rel="stylesheet" href="css/normalize.css"> -->
         <link rel="stylesheet" href="static/css/main.css" type="text/css" media="screen"/>
     </head>
@@ -25,61 +64,133 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
 	</div>
 	<div class="project-item">
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
 	</div>
 	<div class="project-item">
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
 	</div>
 	<div class="project-item">
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
 	</div>
 	<div class="project-item">
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
 	</div>
 	<div class="project-item">
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-	</div>
-		<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
-	</div>
-	<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
 	</div>
 	<div class="project-item">
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-	</div>
-		<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
-	</div>
-	<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
 	</div>
 	<div class="project-item">
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
+	</div>
+	<div class="project-item">
+		<span class="author">Dior</span>
+		<span class="title">Cruise 18</span>
+		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
+	</div>
+	<div class="project-item">
+		<span class="author">Dior</span>
+		<span class="title">Cruise 18</span>
+		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
+	</div>
+	<div class="project-item">
+		<span class="author">Dior</span>
+		<span class="title">Cruise 18</span>
+		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
+	</div>
+	<div class="project-item">
+		<span class="author">Dior</span>
+		<span class="title">Cruise 18</span>
+		<span class="client">Bureau Betak</span>
+		<div class="image video">
+			<video>
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
 	</div>
 	<div class="project-item">
 		<span class="author">Dior</span>

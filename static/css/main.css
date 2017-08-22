@@ -64,7 +64,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 span {
-    display: block;
+    display: table;
     padding-left: 10%;
 }
 
@@ -79,6 +79,16 @@ a:hover {
 
 a:active {
 	color: #000;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+video {
+    width: 100%;
+    height: auto;
 }
 
 /*structure*/
@@ -124,6 +134,14 @@ span:first-child {
     margin-top: 5px;
 }
 
+.video {
+    width: 44vw;
+    position: fixed;
+    z-index: 999;
+    padding: 10px;
+    display: none;
+}
+
 /*sidebar*/
 .sidebar {
     width: 40px;
@@ -167,6 +185,10 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	top: 15vh;
     left: -30px;
     width: 100px;
+}
+
+.author:hover + .image {
+    display: block;
 }
 
 
