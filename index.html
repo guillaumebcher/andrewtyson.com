@@ -19,31 +19,61 @@
 					iH = $('.video').height(),
 					wW = $(window).width() - iW,
 					wH = $(window).height() - iH,
-					randomW, randomH, thus;
+					arr = [],
+					randomW, randomH, thus, current, timer, duration, myVideoPlayer;
 
 				// console.log('wH: ' + randomH + ' wW: ' + wW + ' ' + iW + ' ' + iH);
 
-				function randomMe(){
+
+				$(".video").each(function(i){ 
+					// arr.push($(this));
+					randomMe($(this));
+					var duration = $(this).parent().children('.duration');
+					var myVideoPlayer = $(this).children('video').get(0);
+
+					
+					myVideoPlayer.addEventListener('loadedmetadata', function() {
+					 	arr[i] = Math.floor(myVideoPlayer.duration);
+					    $(duration).html(arr[i]);
+					});
+			
+				});
+
+				// Random placement of the videos
+				function randomMe(el){
 					randomW = Math.floor((Math.random() * wW) + 0);
 					randomH = Math.floor((Math.random() * wH) + 0);
-					$('.video').css({top: randomH, left: randomW});
+					$(el).css({top: randomH, left: randomW});
 				}
 
+
+				// Rescale videos On resize
 				$( window ).resize(function() {
 					wW = $(window).width() - iW;
 					wH = $(window).height() - iH;
 				});
 
+
+				// Show video on Hover
 				$(".author").hover(function(){
-						randomMe();
 						thus = $(this).parent().children('.video');
+						thusCurrent = $(this).parent().children('.current');
+						thusDuration = $(this).parent().children('.duration');
 						thusVideo = thus.children();
 		                $(thus).show();
 		                thusVideo[0].play();
+		                timer = setInterval(function(){
+							current = $(thusVideo).get(0).currentTime;
+							duration = (thusVideo).get(0).duration;
+							//$(thusCurrent).html(Math.floor(current));
+							$(thusDuration).html(Math.floor(duration - current));   
+						},50);
 		            }, function () {
-		            	$(thus).hide();
-		            	thusVideo[0].pause();
+
 						thusVideo[0].load();
+						thusVideo[0].pause();
+						clearInterval(timer);
+						$(thus).hide();
 		            }
 		        );
 			});
@@ -64,7 +94,22 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
+			<video id="video-active">
+			  <source src="static/videos/movie.mp4" type="video/mp4">
+			  <source src="static/videos/movie.ogg" type="video/ogg">
+			</video>
+		</div>
+	</div>
+	<div class="project-item">
+		<span class="author">Dior</span>
+		<span class="title">Cruise 18</span>
+		<span class="client">Bureau Betak</span>
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -75,7 +120,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -86,7 +133,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>		
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -97,7 +146,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -108,7 +159,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -119,7 +172,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -130,7 +185,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -141,7 +198,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -152,7 +211,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -163,7 +224,9 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
@@ -174,53 +237,14 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div class="image video">
+		<div  class="current">0:00</div>
+		<div  class="duration">0:00</div>	
+		<div class="video">
 			<video>
 			  <source src="static/videos/movie.mp4" type="video/mp4">
 			  <source src="static/videos/movie.ogg" type="video/ogg">
 			</video>
 		</div>
-	</div>
-	<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
-		<div class="image video">
-			<video>
-			  <source src="static/videos/movie.mp4" type="video/mp4">
-			  <source src="static/videos/movie.ogg" type="video/ogg">
-			</video>
-		</div>
-	</div>
-	<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
-	</div>
-	<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
-	</div>
-	<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
-	</div>
-		<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
-	</div>
-	<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
-	</div>
-	<div class="project-item">
-		<span class="author">Dior</span>
-		<span class="title">Cruise 18</span>
-		<span class="client">Bureau Betak</span>
 	</div>
 </div>  
 </div>
