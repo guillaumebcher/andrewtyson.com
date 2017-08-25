@@ -25,8 +25,8 @@
 
 				// Random placement of the videos
 				function randomMe(el){
-					randomW = Math.floor((Math.random() * wW / 2) + 0);
-					randomH = Math.floor((Math.random() * wH / 2)+ 0);
+					randomW = Math.floor((Math.random() * wW / 1.5) + 0);
+					randomH = Math.floor((Math.random() * wH / 1.5)+ 0);
 					$(el).css({top: randomH, left: randomW});
 				}
 
@@ -85,7 +85,9 @@
 		        	this.timer = setInterval(function(){
 						current = $(thusVideo).get(0).currentTime;
 						duration = $(thusVideo).get(0).duration;
-						$(thusDuration).html(Math.floor(duration - current));   
+						//$(thusDuration).html(Math.floor(duration - current)); 
+						var num = duration - current;
+						$(thusDuration).html(num.toFixed(2));   
 					},50);
 		        }
 
