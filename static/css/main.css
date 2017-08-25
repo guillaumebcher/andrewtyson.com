@@ -65,7 +65,7 @@ body {
 }
 span {
     display: table;
-    padding-left: 10%;
+    margin-left: 10%;
 }
 
 a {
@@ -123,7 +123,7 @@ video {
     border-bottom: none;
 }
 span:first-child {
-	padding-top: 10%;
+	margin-top: 10%;
 }
 .client {
     position: absolute;
@@ -182,14 +182,23 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
     width: 100px;
 }
 .email {
-	top: 15vh;
-    left: -30px;
+    top: 15vh;
+    left: -43px;
     width: 100px;
 }
 
-.author:hover + .image {
-    display: block;
+.author {
+    cursor: pointer;
 }
+
+.duration {
+    position: absolute;
+    left: 60%;
+    margin-top: -1em;
+}
+
+.popup { display: none; z-index: 40; }
+.upper { z-index: 41; background: }
 
 
 /*responsive*/

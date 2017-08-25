@@ -13,71 +13,7 @@
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				var iW = $('.video').width(),
-					iH = $('.video').height(),
-					wW = $(window).width() - iW,
-					wH = $(window).height() - iH,
-					arr = [],
-					randomW, randomH, thus, current, timer, duration, myVideoPlayer;
-
-				// console.log('wH: ' + randomH + ' wW: ' + wW + ' ' + iW + ' ' + iH);
-
-
-				$(".video").each(function(i){ 
-					// arr.push($(this));
-					randomMe($(this));
-					var duration = $(this).parent().children('.duration');
-					var myVideoPlayer = $(this).children('video').get(0);
-
-					
-					myVideoPlayer.addEventListener('loadedmetadata', function() {
-					 	arr[i] = Math.floor(myVideoPlayer.duration);
-					    $(duration).html(arr[i]);
-					});
-			
-				});
-
-				// Random placement of the videos
-				function randomMe(el){
-					randomW = Math.floor((Math.random() * wW) + 0);
-					randomH = Math.floor((Math.random() * wH) + 0);
-					$(el).css({top: randomH, left: randomW});
-				}
-
-
-				// Rescale videos On resize
-				$( window ).resize(function() {
-					wW = $(window).width() - iW;
-					wH = $(window).height() - iH;
-				});
-
-
-				// Show video on Hover
-				$(".author").hover(function(){
-						thus = $(this).parent().children('.video');
-						thusCurrent = $(this).parent().children('.current');
-						thusDuration = $(this).parent().children('.duration');
-						thusVideo = thus.children();
-		                $(thus).show();
-		                thusVideo[0].play();
-		                timer = setInterval(function(){
-							current = $(thusVideo).get(0).currentTime;
-							duration = (thusVideo).get(0).duration;
-							//$(thusCurrent).html(Math.floor(current));
-							$(thusDuration).html(Math.floor(duration - current));   
-						},50);
-		            }, function () {
-
-						thusVideo[0].load();
-						thusVideo[0].pause();
-						clearInterval(timer);
-						$(thus).hide();
-		            }
-		        );
-			});
-  		</script>
+		<script type="text/javascript" src="static/js/main.js"></script>
 
         <!-- <link rel="stylesheet" href="css/normalize.css"> -->
         <link rel="stylesheet" href="static/css/main.css" type="text/css" media="screen"/>
@@ -94,12 +30,11 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video id="video-active">
-			  <source src="static/videos/movie.mp4" type="video/mp4">
-			  <source src="static/videos/movie.ogg" type="video/ogg">
+			  <source src="static/videos/AlexWangFallWinter2018_BureauBetak_576x432.mp4" type="video/mp4">
+			  <!-- <source src="static/videos/movie.ogg" type="video/ogg"> -->
 			</video>
 		</div>
 	</div>
@@ -107,7 +42,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -120,7 +54,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -133,7 +66,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>		
 		<div class="video">
 			<video>
@@ -146,7 +78,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -159,7 +90,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -172,7 +102,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -185,7 +114,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -198,7 +126,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -211,7 +138,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -224,7 +150,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
@@ -237,7 +162,6 @@
 		<span class="author">Dior</span>
 		<span class="title">Cruise 18</span>
 		<span class="client">Bureau Betak</span>
-		<div  class="current">0:00</div>
 		<div  class="duration">0:00</div>	
 		<div class="video">
 			<video>
