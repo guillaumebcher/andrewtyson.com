@@ -9,19 +9,25 @@
 					more = 1000,
 					randomW, randomH, thus, thusVideo, current, timer, duration, myVideoPlayer;
 
-				$(".video").each(function(i){ 
-					// arr.push($(this));
-					randomMe($(this));
-					var duration = $(this).parent().children('.duration');
-					var myVideoPlayer = $(this).children('video').get(0);
+				videoPlacement();
 
-					
-					myVideoPlayer.addEventListener('loadedmetadata', function() {
-					 	arr[i] = Math.floor(myVideoPlayer.duration);
-					    $(duration).html(arr[i]);
+				
+				function videoPlacement (){
+					$(".video").each(function(i){ 
+						// arr.push($(this));
+						randomMe($(this));
+						var duration = $(this).parent().children('.duration');
+						var myVideoPlayer = $(this).children('video').get(0);
+
+						
+						myVideoPlayer.addEventListener('loadedmetadata', function() {
+						 	arr[i] = Math.floor(myVideoPlayer.duration);
+						    $(duration).html(arr[i] + ".00 sec");
+						});
+				
 					});
-			
-				});
+				}
+
 
 				// Random placement of the videos
 				function randomMe(el){
@@ -35,11 +41,13 @@
 				$( window ).resize(function() {
 					wW = $(window).width() - iW;
 					wH = $(window).height() - iH;
+					videoPlacement();
 				});
 
-
 				// Hide video when document is clicked
-				$(document).click(function() {
+				$(document).on('click touchstart', function () {
+					$('.project-item').removeClass('active');
+					n = 0;
 				    for(var i = 0 ; i < tab.length ; i++){
 				    	tab[i].video[0].load();
 				    	tab[i].video[0].pause();
@@ -49,7 +57,9 @@
 				});
 
 				// Show video on Click
-				$(".author").click(function(e){
+				$(".author, .title, .client, .duration").click(function(e){
+
+					$(this).parent().addClass('active');
 
 					thus = $(this).parent().children('.video');
 					thusCurrent = $(this).parent().children('.current');
@@ -63,14 +73,12 @@
 					tab[n].index(more);
 					n++;
 					more += 10;
-					console.log(n);
 
 					e.stopPropagation(); // This is the preferred method.
 					return false;        // This should not be used unless you do not want
 		        });
 
-
-
+				// Video object
 		        function video(thus, thusCurrent, thusDuration , thusVideo){
 		        	this.container = thus;
 		        	this.spancurrent = thusCurrent;
@@ -87,7 +95,8 @@
 						duration = $(thusVideo).get(0).duration;
 						//$(thusDuration).html(Math.floor(duration - current)); 
 						var num = duration - current;
-						$(thusDuration).html(num.toFixed(2));   
+						num = isNaN(num) ? '' : $(thusDuration).html(num.toFixed(2) + " sec");
+						 
 					},50);
 		        }
 
