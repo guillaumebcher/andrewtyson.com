@@ -119,6 +119,15 @@ video {
 	position: relative;
 	float: left;
 }
+
+i.fa {
+	font-size: 9px;
+    margin-left: 5px;
+}
+
+.project-item.active span {
+    text-decoration: line-through;
+}
 .no-border {
     border-bottom: none;
 }
@@ -129,12 +138,15 @@ span:first-child {
     position: absolute;
     bottom: 10%;
     left: 0;
+    cursor: pointer;
 }
 .title {
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .video {
+	background: url(../images/loading.gif) no-repeat center center;
     width: 44vw;
     position: fixed;
     z-index: 999;
@@ -173,17 +185,17 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 .name {
     bottom: 15vh;
-    left: -30px;
+    left: -34px;
     width: 100px;
 }
 .number {
 	bottom: 35vh;
-    left: -30px;
+    left: -34px;
     width: 100px;
 }
 .email {
     top: 15vh;
-    left: -43px;
+    left: -47px;
     width: 100px;
 }
 
@@ -195,6 +207,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
     position: absolute;
     left: 60%;
     margin-top: -1em;
+    cursor: pointer;
 }
 
 .popup { display: none; z-index: 40; }
@@ -222,8 +235,14 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	.project-item {
 		width: calc((100%) / 2);
 	}
-	.project-item:nth-last-child(-n+2) {
+/*	.project-item:nth-last-child(-n+2) {
 	  border-bottom: none;
+	}*/
+	.project-item:nth-last-child(-n+1) {
+	  border-bottom: none;
+	}
+	.video {
+    width: 60vw;
 	}
 }
 @media (max-width: 600px) {
@@ -236,5 +255,8 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	}
 	.project-item:last-child {
     	border-bottom: none;
+	}
+	.video {
+    width: 80vw;
 	}
 }
